@@ -12,6 +12,10 @@
     --font-ui: 'Inter', sans-serif;
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -97,10 +101,12 @@ body, html {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+    width: 100%;
 }
 
 .search-box input {
-    flex-grow: 1;
+    flex: 1 1 auto;
+    min-width: 0; /* Allows input to shrink below default width on tiny screens */
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
@@ -267,14 +273,14 @@ body, html {
     #search-panel {
         top: 10px;
         left: 10px;
-        width: calc(100% - 20px);
+        width: calc(100vw - 20px) !important;
         padding: 15px;
     }
 
     #legend-panel {
         bottom: 10px;
         left: 10px;
-        width: calc(100% - 20px);
+        width: calc(100vw - 20px) !important;
         padding: 10px 15px;
     }
 
