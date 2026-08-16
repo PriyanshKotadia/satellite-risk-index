@@ -6,7 +6,6 @@ Multi-Constellation Collision Risk Score Estimator — a spatial-temporal ML mod
 Experience the real-time simulation: **[https://PriyanshKotadia.github.io/satellite-risk-index/](https://PriyanshKotadia.github.io/satellite-risk-index/)**
 
 > ![Globe Visualization](docs/screenshot.png)
-> *(Replace `docs/screenshot.png` with an actual screenshot of the visualization)*
 
 *Visual Style: A deep navy/black space background is rendered using a highly performant static procedural canvas starfield (chosen over a CDN skybox texture to ensure perfect offline reliability and avoid broken links). Satellites orbit in real-time simulation along their orbital planes. Objects glow cyan/electric-blue for normal risk, shifting to an amber-to-red gradient for high-risk targets. A technical, glowing HUD overlay displays top SHAP drivers and risk metrics when a satellite is selected, while highlighting the entire parent constellation. Users can also search and filter satellites by name, constellation, or country.*
 
