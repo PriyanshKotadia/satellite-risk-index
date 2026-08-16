@@ -94,7 +94,20 @@ const deckgl = new Deck({
 fetch('assets/predictions.json')
     .then(res => res.json())
     .then(data => {
-        allSatellites = data;
+        // Sort by risk so we retain the most important satellites if we downsample
+        data.sort((a, b) => b.predicted_R - a.predicted_R);
+        
+        // Mobile Performance Cap: 17k is too heavy for many mobile GPUs.
+        const isMobile = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
+        const MAX_MOBILE_SATS = 3000;
+        
+        if (isMobile && data.length > MAX_MOBILE_SATS) {
+            allSatellites = data.slice(0, MAX_MOBILE_SATS);
+            console.log(`Mobile device detected. Capped satellites to ${MAX_MOBILE_SATS} highest-risk objects for performance.`);
+        } else {
+            allSatellites = data;
+        }
+        
         console.log(`Loaded ${allSatellites.length} satellites.`);
         startAnimation();
     });
