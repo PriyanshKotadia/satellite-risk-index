@@ -24,7 +24,6 @@ let viewState = {
 
 // UI Elements
 const searchInput = document.getElementById('search-input');
-const clearSearchBtn = document.getElementById('clear-search-btn');
 const detailsPanel = document.getElementById('details-panel');
 const closePanelBtn = document.getElementById('close-panel-btn');
 const highlightConstelBtn = document.getElementById('highlight-constel-btn');
@@ -315,7 +314,4 @@ searchInput.addEventListener('input', () => {
     renderLayers();
 });
 
-clearSearchBtn.addEventListener('click', () => {
-    searchInput.value = '';
-    renderLayers();
-});
+
