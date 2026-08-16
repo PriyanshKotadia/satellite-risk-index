@@ -12,6 +12,7 @@ def test_clean_catalog_smoke():
         'mean_motion': [15.0, 14.0, 1.0],
         'eccentricity': [0.001, 0.002, 0.5],
         'inclination': [53.0, 87.0, 10.0],
+        'altitude_km': [550.0, 1200.0, 35000.0],
         'ra_of_asc_node': [0.0, 0.0, 0.0],
         'arg_of_pericenter': [0.0, 0.0, 0.0],
         'mean_anomaly': [0.0, 0.0, 0.0],
