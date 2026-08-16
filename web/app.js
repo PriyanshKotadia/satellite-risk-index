@@ -98,7 +98,7 @@ fetch('assets/predictions.json')
         
         // Mobile Performance Cap: 17k is too heavy for many mobile GPUs.
         const isMobile = window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent);
-        const MAX_MOBILE_SATS = 3000;
+        const MAX_MOBILE_SATS = 10000;
         
         if (isMobile && data.length > MAX_MOBILE_SATS) {
             allSatellites = data.slice(0, MAX_MOBILE_SATS);
