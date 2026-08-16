@@ -1,1 +1,80 @@
-<!-- Main HTML entry point -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Risk Globe</title>
+    
+    <!-- Load Deck.gl -->
+    <script src="https://unpkg.com/deck.gl@8.9.34/dist.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Starfield -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Deck.gl Container -->
+    <canvas id="deck-canvas"></canvas>
+
+    <!-- HUD Overlay -->
+    <div id="hud-container">
+        
+        <!-- Search and Filter -->
+        <div id="search-panel" class="hud-panel">
+            <h2>SATELLITE COMM-LINK</h2>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search by name, constellation, or country..." autocomplete="off">
+                <button id="clear-search-btn">CLR</button>
+            </div>
+            <div class="disclaimer">
+                <span class="warning-icon">⚠</span>
+                Orbital motion is a physically-plausible simulation for visualization, not live tracking data.
+            </div>
+        </div>
+
+        <!-- Sidebar / Details Panel -->
+        <div id="details-panel" class="hud-panel hidden">
+            <h3 id="sat-name">SAT-NAME</h3>
+            <div class="sat-meta">
+                <span class="label">NORAD ID:</span> <span id="sat-id" class="value">00000</span><br>
+                <span class="label">CONSTEL:</span> <span id="sat-constel" class="value">Unknown</span><br>
+                <span class="label">COUNTRY:</span> <span id="sat-country" class="value">Unknown</span>
+            </div>
+            
+            <div class="risk-section">
+                <span class="label">CONGESTION RISK (R)</span>
+                <div class="risk-gauge">
+                    <div id="risk-bar" class="risk-bar-fill"></div>
+                </div>
+                <div id="risk-value" class="risk-value-text">0.0</div>
+            </div>
+
+            <div class="shap-section">
+                <span class="label">TOP RISK DRIVERS:</span>
+                <ul id="shap-list">
+                    <li>Factor 1</li>
+                    <li>Factor 2</li>
+                    <li>Factor 3</li>
+                </ul>
+            </div>
+            
+            <button id="highlight-constel-btn" class="hud-btn">HIGHLIGHT CONSTELLATION</button>
+            <button id="close-panel-btn" class="hud-btn close-btn">CLOSE</button>
+        </div>
+
+        <!-- Legend -->
+        <div id="legend-panel" class="hud-panel">
+            <span class="label">RISK INDEX (R)</span>
+            <div class="legend-gradient"></div>
+            <div class="legend-labels">
+                <span>0</span>
+                <span>100</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
